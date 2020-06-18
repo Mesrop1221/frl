@@ -1,0 +1,285 @@
+@import url(https://fonts.googleapis.com/css2?family=Caveat&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);
+@font-face{font-family:NotoSansArmenianBold;src:url(../fonts/NotoSansArmenian-Bold.ttf)}
+@font-face{font-family:NotoSansArmenianRegular;src:url(../fonts/NotoSansArmenian-Regular.ttf)}
+@font-face{font-family:NotoSansArmenianMedium;src:url(../fonts/NotoSansArmenian-Medium.ttf)}
+@font-face{font-family:NotoSansArmenianLight;src:url(../fonts/NotoSansArmenian-Light.ttf)}
+@font-face{font-family:NotoSansArmenianThin;src:url(../fonts/NotoSansArmenian-Thin.ttf)}
+body::-webkit-scrollbar{
+    width:12px;
+}
+body::-webkit-scrollbar-track{
+    background-color:#666;
+}
+body::-webkit-scrollbar-thumb{
+    background-color:#ccc;
+}
+body{
+    padding:0;
+    margin: 0;
+}
+nav{
+    position: fixed;
+    height: 77.999px;
+    width: 100%;
+    background:rgba(255,255,255,.5);
+    z-index:6;
+}
+.logo{
+    line-height: 85px;
+    margin-left: 80px;
+}
+nav ul{
+    float: right;
+    margin-right: 10px;
+}
+nav ul li{
+    display: inline-block;
+    margin-top: 15px;
+    line-height: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 0;
+}
+nav ul li a{
+    color: #3246a1;
+    text-decoration: none;
+    padding-top: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 27px;
+    transition: 0.3s;
+    user-select: none;
+    font-family:NotoSansArmenianBold;
+}
+nav ul li a:hover{
+    background:rgba(255,255,255,.4);
+    color:#3246a1
+}
+nav ul li a:active{
+    background:rgba(255,255,255,.4);
+    color:#3246a1
+}
+.checkbtn{
+    font-size: 25px;
+    float: right;
+    margin-top: 40px;
+    margin-right: 30px;
+    cursor: pointer;
+    display: none;
+    color: white;
+}
+
+.checkbtn span{
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    transition: 0.4s;
+}
+.checkbtn::before,
+.checkbtn::after{
+    content: ' ';
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    transition: 0.4s;
+}
+.checkbtn::before{
+    transform: translateY(-5px);
+}
+.checkbtn::after{
+    transform: translateY(5px);
+}
+#check{
+    display: none;
+}
+.sticky{
+    background-color: #785C8F;
+}
+nav.sticky ul{
+    background-color: #785C8F;
+}
+nav.sticky ul li a{
+    color: white;
+}
+.hero{
+    background-image: url(../img/header.jpg);
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:-moz-box;
+    display:-ms-flexbox;
+    display:block;
+    -webkit-box-pack:center;
+    -webkit-justify-content:center;
+    -moz-box-pack:center;
+    -ms-flex-pack:center;
+    justify-content:center;
+    -webkit-box-align:center;
+    -webkit-align-items:center;
+    -moz-box-align:center;
+    -ms-flex-align:center;
+    align-items:center;
+    background-size:cover;
+    background-position:0 50%;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    min-height:600px;
+}
+.hero{
+    text-align:center
+}
+#bbtn.sticky{
+    color: white;
+}
+#bbtn{
+    color:#3246a1;
+}
+.hero h1{
+    font-size:60px;
+    margin-bottom:10px;
+    padding-top: 240px;
+    font-family:NotoSansArmenianLight
+}
+.hero p{
+    font-size:22px;
+    font-family:NotoSansArmenianLight
+}
+.vvv{
+    display: block;
+}
+nav ul ul{
+    position: absolute;
+    background: rgba(255,255,255,.5);
+    max-width: 127px;
+    top: 95px;
+    opacity: 0;
+    transition: top 0.2s;
+    text-align: center;
+    visibility: hidden;
+}
+nav ul ul li{
+    margin: 0;
+}
+nav ul li:hover > .drop{
+    visibility: visible;
+    opacity: 1;
+    top: 78px;
+}
+nav ul ul li a{
+    padding: 10px 25px;
+    margin: 0;
+    width: 100%;
+    font-size: 17px;
+    transition: none;
+}
+.show {
+    display:block;
+}
+@media screen and (max-width:1024px){
+    nav ul li {
+        font-size: 12px;
+    }
+    .dropbtn{
+        font-size: 12px;
+        color: white;
+    }
+    #navul{
+        position: relative;
+    }
+}
+@media screen and (max-width:768px){
+    .checkbtn{
+        display: block;
+    }
+    #bbtn{
+        color: white;
+    }
+    nav ul ul{
+        position: static;
+        visibility: visible;
+        opacity: 1;
+        background: none;
+        margin:  10 auto;
+        float: none;
+        color: red;
+        z-index: 7000;
+    }
+    nav ul ul li{
+        color: red;
+        z-index: 100;
+        opacity: 1;
+    }
+    .sticky{
+        color:white ;
+    }
+    .logo{
+        margin-left: 30px;
+    }
+    nav.sticky #navul{
+        background-color: #785C8F;
+    }
+    nav{
+        background-color: #785C8F;
+        color: white;
+    }
+    #navul{
+        width: 100%;
+        position: fixed;
+        background-color: #785C8F;
+        color: white;
+        margin-top: -7.5159px;
+        transform: scale(0);
+        text-align: center;
+        left: 0%;
+        border-radius: 50%;
+        transition: 0.6s;
+    }
+    nav ul li{
+        display: block;
+        margin-bottom: 15px;
+        color: white;
+        font-size: 17px;
+    }
+    nav ul li a{
+        padding-top: 20px;
+        padding-left: 12px;
+        padding-right: 12px;
+        color: white;
+    }
+    #check:checked ~ ul{
+        transform: scale(1);
+        border-radius: 0%;
+    }
+    #check:checked ~ .checkbtn span{
+        display: none;
+    }
+    #check:checked ~ .checkbtn::after{
+        transform: rotate(45deg)
+    }
+    #check:checked ~ .checkbtn::before{
+        transform: rotate(135deg)
+    }
+    .hero h1{
+        font-size:42px;
+        margin-bottom:10px;
+        padding-top: 200px;
+        font-family:NotoSansArmenianLight
+    }
+    .hero p{
+        font-size:19px;
+        font-family:NotoSansArmenianLight
+    }
+}
+@media screen and (max-width:481px){
+    ul{
+        left: -100%;
+        transition: 0.4s;
+        text-align: center;
+    }
+    #check:checked ~ ul{
+        left:0%;
+    }
+}
