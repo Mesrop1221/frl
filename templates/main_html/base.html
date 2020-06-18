@@ -1,0 +1,89 @@
+<!-- Project by HayrapetyanStyle https://www.hayrapetyanstyle.am -->
+<html lang="hy">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <meta name="author" content="HayrapetyanStyle">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="shortcut icon" href="img/favicon-16x16.png">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <title>Girls Consultant</title>
+</head>
+<body>
+    <nav>
+        <div class="container">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <span></span>
+        </label>
+        <a href="{% url 'magic:main' %}" class="logo">LOGO</a>
+            <ul id="navul" class="vvv">
+                {% for group in groups %}
+                <li>
+                    <a href="{% url 'magic:detail' group.group_slug %}">{{group.group_name}}</a>
+                    <ul class="drop">
+                    {% for type in types %}
+                        {% if type.group.id == group.id %}
+                            <li><a href="{% url 'magic:type_detail' type.id %}">{{type.type}}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+            </div>
+        </nav>
+        <section class="hero">
+            <h1>Կայքի անունը</h1>
+            <p>Կայքի Նկարագրությունը</p>
+    </section>
+    {% block content %}
+
+
+    {% endblock %}
+    <footer>
+        <section class="footer container">
+            <div class="footer_block">
+                <h4>Օգտակար հղումներ</h4>
+                <ul>
+                    <li><a href="#">Դիմել գովազդի համար</a></li>
+                    <li><a href="{% url 'magic:contact' %}">Բողոքների և/կամ առաջարկների համար</a></li>
+                    <li><a href="{% url 'magic:politic' %}">Գաղտնիության քաղաքականություն</a></li>
+                </ul>
+            </div>
+            <div class="footer_block">
+                <h4>Սոցիալական կայքեր</h4>
+                <ul>
+                    {% for link in links %}
+                         <li><a href="{{link.url}}" target="_blank">{{link.link_name}}</a></li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+            <div class="footer_block">
+                <h4>Կապ</h4>
+                <ul>
+                    <li><a href="#">info@domain.am</a></li>
+                </ul>
+            </div>
+        </section>
+        <div class="web_info">
+            <p> © Բոլոր իրավունքները պաշտպանված են 2020 | կայքի անունը</p>
+            <p>Project By <a href="https://www.hayrapetyanstyle.am/" target="_blank">HayrapetyanStyle</a> </p>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        window.addEventListener("scroll", function(){
+            var header = document.querySelector("nav")
+            var ul = document.getElementsByClassName("vvv")[0]
+            header.classList.toggle("sticky", window.scrollY > 100);
+            ul.classList.toggle("sticky", window.scrollY > 100);
+        })
+        </script>
+</body>
+</html> 

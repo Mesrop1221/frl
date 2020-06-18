@@ -1,0 +1,30 @@
+{% extends 'main_html/base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="review-content container">
+        <h4 class="titles">Բողոքների և/կամ առաջարկների համար գրեք մեր էլ․ հասցեին կամ մեր ֆեյսբուքյան էջին</h4>
+        <div class="contents">
+        <div class="email-form">
+            <h4 class="titles">էլ․ հասցե</h4>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Անուն*" required>
+                <input type="text" name="surname" placeholder="Ազգանուն*" required>
+                <input type="email" name="email" placeholder="էլ․հասցե*" required>
+                <input type="text" name="phone" placeholder="Հեռախոսահամար" required>
+                <textarea placeholder="Հաղորդագրություն" name="msg" required></textarea>
+                <div class="send-btn">
+                    <button type="submit">Ուղարկել</button>
+                </div>
+            </form>
+        </div>
+        <h4 class="or" style="font-size: 25px;">Կամ</h4>
+        <div class="fb-icon">
+            <h4 class="titles">ֆեյսբուքյան էջ</h4>
+            <a href=""><img src="{% static 'img/fb.png' %}"></a>
+        </div>
+        </div>
+    </section>
+
+{% endblock %}
